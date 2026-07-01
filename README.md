@@ -26,7 +26,7 @@ Anwendung erreichbar unter: http://localhost:8080/login.html
 
 ## Umgesetzte OWASP-Risiken
 
-### 1) A07:2021 – Identification and Authentication Failures
+### 1) Identification and Authentication Failures
 - **Vorher:** Passwoerter wurden mit ungesalzenem SHA-256 gehasht
   (`UserService.hash()`), Login ohne Versuchsbegrenzung, kein CAPTCHA,
   kein Logging.
@@ -40,7 +40,7 @@ Anwendung erreichbar unter: http://localhost:8080/login.html
   - Mindestpasswortlaenge (8 Zeichen) bei Registrierung.
   - Session-ID-Wechsel nach Login (Schutz vor Session Fixation).
 
-### 2) A01:2021 – Broken Access Control
+### 2) Broken Access Control
 - **Vorher:** `FlashcardService.update()` pruefte den Besitzer der
   Lernkarte NICHT -> jeder eingeloggte Benutzer konnte fremde Karten
   per `PUT /api/cards/{id}` veraendern (IDOR).
@@ -53,7 +53,7 @@ Anwendung erreichbar unter: http://localhost:8080/login.html
   - Least Privilege: neue Konten erhalten standardmaessig nur
     `ROLE_USER`.
 
-### 3) A09:2021 – Security Logging and Monitoring Failures
+### 3) Security Logging and Monitoring Failures
 - **Vorher:** Kein Logging-Framework genutzt, lediglich
   `e.printStackTrace()` in den Repositories. Keine Security-Events
   (Logins, Zugriffsverweigerungen) wurden erfasst.
