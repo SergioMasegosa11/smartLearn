@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="de">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Karten · SmartLearn</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+
+    <body>
+        <div class="page">
+
+            <div class="topbar">
+                <a class="brand" href="index.html">
+                    <span class="brand-mark"></span>
+                    SmartLearn
+                </a>
+                <a href="index.html"><button class="ghost">← Zurück</button></a>
+            </div>
+
+            <h1>Lernkarten verwalten</h1>
+
+            <h2>Neue Karte erstellen</h2>
+            <div class="form-card">
+                <input id="question" placeholder="Frage">
+                <input id="answer" placeholder="Antwort">
+                <input id="category" placeholder="Kategorie">
+
+                <button class="primary" onclick="addCard()">
+                    Karte speichern
+                </button>
+            </div>
+
+            <hr>
+
+            <h2>Alle Karten</h2>
+            <div class="filter-row">
+                <input id="search" placeholder="🔍 Suche..." oninput="applyFilters()">
+                <select id="filterCategory" onchange="applyFilters()">
+                    <option value="">Alle Kategorien</option>
+                </select>
+                <label>
+                    <input type="checkbox" id="favOnly" onchange="applyFilters()">
+                    Nur Favoriten
+                </label>
+            </div>
+
+            <button id="statsToggle" onclick="toggleStats()">📊 Statistik anzeigen</button>
+
+            <div id="stats" class="stats-box" style="display:none;"></div>
+
+            <div id="cards"></div>
+
+        </div>
+
+        <script src="script.js?v=3"></script>
+        <script>
+            fetch("/api/users/current", {
+                credentials: "include"
+            })
+                .then(r => r.text())
+                .then(user => {
+                    if (user === "") location.href = "login.html";
+                });
+        </script>
+
+
+    </body>
+</html>

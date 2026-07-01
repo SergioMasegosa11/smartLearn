@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="UTF-8" /><title>Card Form</title></head>
+<body>
+<h1 th:text="${card.id} == null ? 'Create' : 'Edit'">Form</h1>
+<form th:action="@{/cards}" th:object="${card}" method="post">
+    <input type="hidden" th:field="*{id}" />
+    <label>Title: <input th:field="*{title}"/></label><br/>
+    <label>Content: <textarea th:field="*{content}"></textarea></label><br/>
+    <button type="submit">Save</button>
+</form>
+</body>
+</html>

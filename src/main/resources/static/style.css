@@ -1,0 +1,460 @@
+/* ===================================================
+   SmartLearn — Design Tokens
+   =================================================== */
+:root{
+    --bg:           #f6f5fb;
+    --surface:      #ffffff;
+    --border:       #e6e3f2;
+    --text:         #221f33;
+    --text-muted:   #6b6680;
+
+    --primary:      #5b4fe9;
+    --primary-dark: #4a3fd1;
+    --primary-soft: #ecebfb;
+
+    --success:      #1faa6c;
+    --success-soft: #e3f7ee;
+    --danger:       #e5484d;
+    --danger-soft:  #fdecec;
+
+    --radius-sm:    8px;
+    --radius-md:    14px;
+    --radius-lg:    20px;
+
+    --shadow-sm:    0 1px 2px rgba(34, 31, 51, 0.06);
+    --shadow-md:    0 6px 20px rgba(34, 31, 51, 0.08);
+    --shadow-lg:    0 12px 32px rgba(91, 79, 233, 0.16);
+}
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    margin: 0;
+    padding: 0 20px 60px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ===================================================
+   Layout shell
+   =================================================== */
+.page{
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+.topbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 28px 0 8px;
+}
+
+.brand{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    font-size: 1.15rem;
+    letter-spacing: -0.01em;
+    color: var(--text);
+    text-decoration: none;
+}
+
+.brand-mark{
+    width: 30px;
+    height: 30px;
+    border-radius: 9px;
+    background: linear-gradient(135deg, var(--primary), #8b7ef0);
+    position: relative;
+    flex-shrink: 0;
+}
+
+.brand-mark::after{
+    content: "";
+    position: absolute;
+    inset: 8px;
+    border-radius: 4px;
+    background: rgba(255,255,255,0.85);
+}
+
+h1{
+    font-size: 1.7rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin: 18px 0 4px;
+    text-align: center;
+}
+
+h2{
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin: 36px 0 14px;
+    text-align: center;
+}
+
+hr{
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 32px 0;
+}
+
+p.subtitle{
+    text-align: center;
+    color: var(--text-muted);
+    margin: 0 0 28px;
+}
+
+/* ===================================================
+   Buttons
+   =================================================== */
+button{
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 600;
+    padding: 11px 20px;
+    margin: 6px 4px;
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    background: var(--surface);
+    color: var(--text);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+}
+
+button:hover{
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+}
+
+button:active{
+    transform: translateY(0);
+}
+
+button.primary,
+button#statsToggle,
+form button,
+#question + #answer + #category + button{
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+}
+
+button.primary:hover,
+button#statsToggle:hover{
+    background: var(--primary-dark);
+    border-color: var(--primary-dark);
+}
+
+button.correct{
+    background: var(--success-soft);
+    color: var(--success);
+    border-color: var(--success-soft);
+}
+button.correct:hover{
+    background: var(--success);
+    color: #fff;
+}
+
+button.wrong{
+    background: var(--danger-soft);
+    color: var(--danger);
+    border-color: var(--danger-soft);
+}
+button.wrong:hover{
+    background: var(--danger);
+    color: #fff;
+}
+
+button.ghost{
+    background: transparent;
+    box-shadow: none;
+    color: var(--text-muted);
+}
+button.ghost:hover{
+    background: var(--surface);
+    color: var(--text);
+}
+
+a{
+    text-decoration: none;
+}
+
+/* ===================================================
+   Forms
+   =================================================== */
+.form-card{
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    padding: 28px;
+    margin: 0 0 20px;
+}
+
+input{
+    display: block;
+    width: 100%;
+    margin: 0 0 14px;
+    padding: 12px 14px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    background: var(--bg);
+    color: var(--text);
+    transition: border-color 0.12s ease, box-shadow 0.12s ease;
+}
+
+input:last-of-type{
+    margin-bottom: 4px;
+}
+
+input:focus{
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px var(--primary-soft);
+    background: var(--surface);
+}
+
+input::placeholder{
+    color: var(--text-muted);
+}
+
+/* Login page specific centering */
+body.auth{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.auth-card{
+    width: 100%;
+    max-width: 380px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    padding: 36px 32px;
+}
+
+.auth-card h1{
+    margin-top: 0;
+}
+
+#msg{
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--danger);
+    min-height: 1.2em;
+}
+
+/* ===================================================
+   Menu (index page)
+   =================================================== */
+.menu{
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin: 24px 0;
+}
+
+.menu a button{
+    width: 100%;
+    text-align: left;
+    padding: 18px 20px;
+    font-size: 1rem;
+    border-radius: var(--radius-md);
+}
+
+.menu a:nth-child(1) button{
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+}
+.menu a:nth-child(1) button:hover{
+    background: var(--primary-dark);
+}
+
+/* ===================================================
+   Filter row
+   =================================================== */
+.filter-row{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 14px 16px;
+}
+
+.filter-row input,
+.filter-row select{
+    display: inline-block;
+    margin: 0;
+    width: auto;
+    flex: 1 1 160px;
+}
+
+.filter-row label{
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    white-space: nowrap;
+}
+
+select{
+    font-family: inherit;
+    font-size: 0.95rem;
+    padding: 12px 14px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    background: var(--bg);
+    color: var(--text);
+}
+
+/* ===================================================
+   Cards (lernkarten list)
+   =================================================== */
+.card{
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    padding: 18px 20px;
+    margin: 0 0 14px;
+    text-align: left;
+    transition: box-shadow 0.12s ease, transform 0.12s ease;
+}
+
+.card:hover{
+    box-shadow: var(--shadow-md);
+    transform: translateY(-1px);
+}
+
+.card .badge{
+    display: inline-block;
+    background: var(--primary-soft);
+    color: var(--primary-dark);
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 4px 10px;
+    border-radius: 999px;
+    margin-bottom: 8px;
+}
+
+/* ===================================================
+   Stats box
+   =================================================== */
+.stats-box{
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 20px 22px;
+    margin: 0 0 24px;
+    background: var(--surface);
+    box-shadow: var(--shadow-sm);
+    text-align: left;
+}
+
+/* ===================================================
+   Test page — flip card
+   =================================================== */
+#testCard{
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    padding: 56px 32px;
+    margin: 28px 0;
+    cursor: pointer;
+    font-size: 1.15rem;
+    font-weight: 600;
+    text-align: center;
+    transition: box-shadow 0.15s ease, transform 0.15s ease;
+    position: relative;
+}
+
+#testCard:hover{
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+}
+
+#testCard::after{
+    content: "Tippen zum Umdrehen";
+    position: absolute;
+    bottom: 14px;
+    left: 0;
+    right: 0;
+    font-size: 0.72rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+}
+
+.test-actions{
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+#testScore{
+    font-weight: 600;
+    color: var(--text-muted);
+    margin: 18px 0;
+}
+
+.test-footer{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+/* ===================================================
+   Responsive
+   =================================================== */
+@media (max-width: 480px){
+    body{ padding: 0 14px 40px; }
+    .filter-row{ flex-direction: column; align-items: stretch; }
+    .filter-row label{ justify-content: center; }
+    #testCard{ padding: 40px 20px; }
+}
+
+/* ===================================================
+   Accessibility
+   =================================================== */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible{
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce){
+    *{
+        transition: none !important;
+    }
+}

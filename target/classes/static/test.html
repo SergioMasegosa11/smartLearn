@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="de">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Test · SmartLearn</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+
+
+    <body>
+        <div class="page">
+
+            <div class="topbar">
+                <a class="brand" href="index.html">
+                    <span class="brand-mark"></span>
+                    SmartLearn
+                </a>
+                <a href="index.html"><button class="ghost">← Zurück</button></a>
+            </div>
+
+            <h1>Test</h1>
+
+            <div id="testCard" onclick="showTestAnswer()"></div>
+
+            <div class="test-actions">
+                <button class="correct" onclick="testCorrect()">✓ Richtig</button>
+                <button class="wrong" onclick="testWrong()">✕ Falsch</button>
+            </div>
+
+            <p id="testScore"></p>
+
+            <div class="test-footer">
+                <a href="test.html"><button class="ghost">↻ Wiederholen</button></a>
+            </div>
+
+        </div>
+
+        <script src="script.js"></script>
+
+
+    </body>
+
+</html>

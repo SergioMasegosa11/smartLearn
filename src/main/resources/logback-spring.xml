@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  NEU (OWASP A09 - Security Logging and Monitoring Failures):
+
+  Explizite Logback-Konfiguration statt der Spring-Boot-Standard-
+  Konsolenausgabe. Schreibt zusaetzlich in eine Logdatei (wichtig fuer
+  Auditing/Nachvollziehbarkeit, siehe Kompetenz 5 der Aufgabenstellung)
+  und trennt Log-Level sinnvoll:
+    - DEBUG: nur fuer eigenen Code (bbw.lernkarten) waehrend Entwicklung
+    - INFO : normale Anwendungsereignisse (z.B. erfolgreicher Login)
+    - WARN : verdaechtige/abgelehnte Aktionen (Fehlversuche, Sperren,
+             verweigerter Zugriff auf fremde Lernkarten)
+    - ERROR: unerwartete technische Fehler
+
+  WICHTIG: Es werden bewusst NUR die Klasse, das Log-Level und die im
+  Code uebergebene (bereits maskierte/anonymisierte) Nachricht
+  geloggt - niemals der komplette HTTP-Request-Body. Damit landen keine
+  Passwoerter oder vollstaendige Benutzernamen im Klartext im Log.
+-->
+<configuration>
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>logs/smartlearn.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>logs/smartlearn-%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>14</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Eigener Code: ausfuehrlicher (DEBUG) -->
+    <logger name="bbw.lernkarten" level="DEBUG"/>
+
+    <!-- Spring Security: INFO reicht fuer den Normalbetrieb -->
+    <logger name="org.springframework.security" level="INFO"/>
+
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="FILE"/>
+    </root>
+
+</configuration>

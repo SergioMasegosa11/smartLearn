@@ -1,0 +1,37 @@
+[ {
+  "username" : "smas",
+  "passwordHash" : "$2b$12$k2tR3XGXOhBOWCaoWrFzdeEAEvGxMeDBv0dqk4le7SI0kBf93d1e.",
+  "role" : "ROLE_USER",
+  "failedLoginAttempts" : 0,
+  "lockedUntil" : 0
+}, {
+  "username" : "testt",
+  "passwordHash" : "$2b$12$k2tR3XGXOhBOWCaoWrFzdeEAEvGxMeDBv0dqk4le7SI0kBf93d1e.",
+  "role" : "ROLE_USER",
+  "failedLoginAttempts" : 0,
+  "lockedUntil" : 0
+}, {
+  "username" : "admin",
+  "passwordHash" : "$2b$12$ofB9lCwBMd0VlSwzuFDOAuwwF7uPUHs1FD/9ztZXqhS5TJsyaA/AO",
+  "role" : "ROLE_ADMIN",
+  "failedLoginAttempts" : 0,
+  "lockedUntil" : 0
+}, {
+  "username" : "smas2",
+  "passwordHash" : "$2a$10$wHJ2G7UCxNsSFnMREJDba.Dx0JgdOJwOvmc3dvscrCKJjonWmCcYK",
+  "role" : "ROLE_USER",
+  "failedLoginAttempts" : 0,
+  "lockedUntil" : 0
+}, {
+  "username" : "apitesthgnn",
+  "passwordHash" : "$2a$10$g.RemRI5O4RzkNM.RlG1FOC2oxXqqmIfsf0qJCBM6kyGzUmzdmKGa",
+  "role" : "ROLE_USER",
+  "failedLoginAttempts" : 0,
+  "lockedUntil" : 0
+}, {
+  "username" : "apitestabcd",
+  "passwordHash" : "$2a$10$awMfrwAxdbUbhLWlraeb7.CUpMieIY.9Skrr5bjso0Bfm5.2yJzV.",
+  "role" : "ROLE_USER",
+  "failedLoginAttempts" : 0,
+  "lockedUntil" : 0
+} ]

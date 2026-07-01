@@ -1,0 +1,65 @@
+2026-06-27 18:14:14.318 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2026-06-27 18:14:14.357 [main] INFO  bbw.lernkarten.Main - Starting Main using Java 21.0.11 with PID 9064 (C:\Users\sergi\Downloads\smartlearn-fixed (1)\smartlearn\target\classes started by sergi in C:\Users\sergi\Downloads\smartlearn-fixed (1)\smartlearn)
+2026-06-27 18:14:14.358 [main] DEBUG bbw.lernkarten.Main - Running with Spring Boot v3.2.5, Spring v6.1.6
+2026-06-27 18:14:14.359 [main] INFO  bbw.lernkarten.Main - No active profile set, falling back to 1 default profile: "default"
+2026-06-27 18:14:14.580 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2026-06-27 18:14:14.672 [main] INFO  bbw.lernkarten.Main - Starting Main using Java 21.0.11 with PID 28540 (C:\Users\sergi\Downloads\smartlearn-fixed (1)\smartlearn\target\classes started by sergi in C:\Users\sergi\Downloads\smartlearn-fixed (1)\smartlearn)
+2026-06-27 18:14:14.673 [main] DEBUG bbw.lernkarten.Main - Running with Spring Boot v3.2.5, Spring v6.1.6
+2026-06-27 18:14:14.675 [main] INFO  bbw.lernkarten.Main - No active profile set, falling back to 1 default profile: "default"
+2026-06-27 18:14:17.463 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-06-27 18:14:17.502 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-06-27 18:14:17.508 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-06-27 18:14:17.509 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2026-06-27 18:14:17.655 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-06-27 18:14:17.657 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3238 ms
+2026-06-27 18:14:17.954 [main] INFO  b.lernkarten.config.SecurityConfig - SecurityConfig geladen
+2026-06-27 18:14:18.218 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-06-27 18:14:18.249 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-06-27 18:14:18.258 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-06-27 18:14:18.259 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2026-06-27 18:14:18.408 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-06-27 18:14:18.410 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3634 ms
+2026-06-27 18:14:18.772 [main] INFO  b.lernkarten.config.SecurityConfig - SecurityConfig geladen
+2026-06-27 18:14:18.817 [main] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+2026-06-27 18:14:19.630 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5fcd1c5f, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3cc30dee, org.springframework.security.web.context.SecurityContextPersistenceFilter@7793ad58, org.springframework.security.web.header.HeaderWriterFilter@62765aec, org.springframework.web.filter.CorsFilter@7d528cf7, org.springframework.security.web.csrf.CsrfFilter@1cf336fd, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@16132f21, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2cd388f5, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6dee8ae6, org.springframework.security.web.access.ExceptionTranslationFilter@50b0afd7, org.springframework.security.web.access.intercept.AuthorizationFilter@47148f3f]
+2026-06-27 18:14:19.845 [main] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+2026-06-27 18:14:20.318 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2026-06-27 18:14:20.415 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2026-06-27 18:14:20.464 [main] INFO  bbw.lernkarten.Main - Started Main in 6.601 seconds (process running for 6.946)
+2026-06-27 18:14:20.962 [main] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@53aa2fc9, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4792f119, org.springframework.security.web.context.SecurityContextPersistenceFilter@1a1ccaaf, org.springframework.security.web.header.HeaderWriterFilter@365afe87, org.springframework.web.filter.CorsFilter@5bde57ab, org.springframework.security.web.csrf.CsrfFilter@8054fe2, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3cc053, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@388c519, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@ea00de, org.springframework.security.web.access.ExceptionTranslationFilter@160e99e0, org.springframework.security.web.access.intercept.AuthorizationFilter@64ae105d]
+2026-06-27 18:14:21.477 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2026-06-27 18:14:21.543 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2026-06-27 18:14:21.592 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2026-06-27 18:14:21.653 [main] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+2026-06-27 18:14:33.494 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-06-27 18:14:33.494 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-06-27 18:14:33.495 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2026-06-27 18:14:42.183 [http-nio-8080-exec-1] INFO  b.l.service.LoginAttemptService - Erfolgreicher Login fuer Konto 's***2'
+2026-06-27 18:14:42.185 [http-nio-8080-exec-1] INFO  b.l.controller.UserController - Login erfolgreich: smas2
+2026-06-27 18:14:45.469 [http-nio-8080-exec-3] INFO  b.l.service.FlashcardService - Neue Lernkarte (id=7) angelegt
+2026-06-27 18:14:53.760 [http-nio-8080-exec-5] INFO  b.l.service.FlashcardService - Lernkarte (id=7) aktualisiert
+2026-06-27 18:14:55.402 [http-nio-8080-exec-7] INFO  b.l.service.FlashcardService - Lernkarte (id=7) geloescht
+2026-06-27 18:14:57.636 [http-nio-8080-exec-1] INFO  b.l.service.FlashcardService - Neue Lernkarte (id=7) angelegt
+2026-06-27 18:15:11.545 [http-nio-8080-exec-3] INFO  b.l.controller.UserController - Benutzer hat sich abgemeldet
+2026-06-27 18:15:21.250 [http-nio-8080-exec-10] INFO  b.l.service.LoginAttemptService - Fehlgeschlagener Login-Versuch 1 von 5 fuer Konto 's***2'
+2026-06-27 18:15:26.042 [http-nio-8080-exec-1] INFO  b.l.service.LoginAttemptService - Erfolgreicher Login fuer Konto 's***2'
+2026-06-27 18:15:26.042 [http-nio-8080-exec-1] INFO  b.l.controller.UserController - Login erfolgreich: smas2
+2026-06-27 18:15:29.124 [http-nio-8080-exec-6] INFO  b.l.controller.UserController - Benutzer hat sich abgemeldet
+2026-06-27 18:15:35.278 [http-nio-8080-exec-9] INFO  bbw.lernkarten.service.UserService - Registrierung abgelehnt: Benutzername bereits vergeben
+2026-06-27 18:15:38.456 [http-nio-8080-exec-3] INFO  b.l.service.LoginAttemptService - Erfolgreicher Login fuer Konto 's***2'
+2026-06-27 18:15:38.456 [http-nio-8080-exec-3] INFO  b.l.controller.UserController - Login erfolgreich: smas2

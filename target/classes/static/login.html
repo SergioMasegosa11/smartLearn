@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="de">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Login · SmartLearn</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body class="auth">
+
+        <div class="auth-card">
+            <span class="brand" style="justify-content:center; margin-bottom:18px;">
+                <span class="brand-mark"></span>
+                SmartLearn
+            </span>
+
+            <h1>Login</h1>
+
+            <input id="username" placeholder="Benutzername">
+            <input id="password" type="password" placeholder="Passwort">
+
+            <!-- NEU (OWASP A07 / Aufgabenstellung): einfaches Rechen-CAPTCHA,
+                 schuetzt vor automatisierten Login-/Register-Anfragen. -->
+            <p id="captchaQuestion" style="font-weight:600;"></p>
+            <input id="captchaAnswer" placeholder="Antwort auf die Rechenaufgabe">
+
+            <button class="primary" style="width:100%;" onclick="login()">Login</button>
+            <button class="ghost" style="width:100%;" onclick="register()">Registrieren</button>
+
+            <p id="msg"></p>
+        </div>
+
+        <script>
+        // NEU: CSRF-Token aus Cookie lesen (siehe script.js / SecurityConfig)
+        function getCsrfToken() {
+            const match = document.cookie.match(/(^|;)\s*XSRF-TOKEN=([^;]+)/);
+            return match ? decodeURIComponent(match[2]) : null;
+        }
+
+        let currentCaptchaId = null;
+
+        // NEU: Laedt eine neue CAPTCHA-Rechenaufgabe vom Server.
+        async function loadCaptcha() {
+            let res = await fetch("/api/users/captcha");
+            let captcha = await res.json();
+            currentCaptchaId = captcha.id;
+            document.getElementById("captchaQuestion").innerText = captcha.question;
+            document.getElementById("captchaAnswer").value = "";
+        }
+
+        async function login() {
+            let res = await fetch("/api/users/login", {
+                method: "POST",
+                credentials: "include",
+                headers: {
+                    "Content-Type": "application/json",
+                    ...(getCsrfToken() && {
+                        "X-XSRF-TOKEN": getCsrfToken()
+                    })
+                },
+                body: JSON.stringify({
+                    username: username.value,
+                    password: password.value,
+                    captchaId: currentCaptchaId,
+                    captchaAnswer: document.getElementById("captchaAnswer").value
+                })
+            });
+
+            let txt = await res.text();
+
+            // NEU: Unterscheidet jetzt echte Server-/Netzwerkfehler (z.B.
+            // 403 wegen fehlendem CSRF-Token, 500 wegen Server-Exception)
+            // von den erwarteten fachlichen Antworten. Vorher landete
+            // JEDE unerwartete Antwort in einer falschen, fix kodierten
+            // Meldung ("Benutzer existiert bereits") - das hat den
+            // tatsaechlichen Fehler verschleiert.
+            if (txt === "OK") {
+                location.href = "index.html";
+            } else if (txt === "CAPTCHA_FAIL") {
+                msg.innerText = "Rechenaufgabe falsch geloest";
+                loadCaptcha();
+            } else if (txt === "FAIL") {
+                msg.innerText = "Login fehlgeschlagen (Benutzername/Passwort falsch oder Konto gesperrt)";
+                loadCaptcha();
+            } else {
+                console.error("Unerwartete Login-Antwort, HTTP-Status:", res.status, "Body:", txt);
+                msg.innerText = `Unerwarteter Fehler (HTTP ${res.status}) - siehe Konsole`;
+                loadCaptcha();
+            }
+        }
+
+        async function register() {
+            let res = await fetch("/api/users/register", {
+                method: "POST",
+                credentials: "include",
+                headers: {
+                    "Content-Type": "application/json",
+                    ...(getCsrfToken() && {
+                        "X-XSRF-TOKEN": getCsrfToken()
+                    })
+                },
+                body: JSON.stringify({
+                    username: username.value,
+                    password: password.value,
+                    captchaId: currentCaptchaId,
+                    captchaAnswer: document.getElementById("captchaAnswer").value
+                })
+            });
+
+            let txt = await res.text();
+
+            // NEU: siehe Kommentar in login() - kein falscher Catch-All mehr.
+            if (txt === "OK") {
+                msg.innerText = "Registrierung erfolgreich";
+            } else if (txt === "INVALID") {
+                msg.innerText = "Benutzername fehlt oder Passwort zu kurz (min. 8 Zeichen)";
+            } else if (txt === "CAPTCHA_FAIL") {
+                msg.innerText = "Rechenaufgabe falsch geloest";
+            } else if (txt === "EXISTS") {
+                msg.innerText = "Benutzer existiert bereits";
+            } else {
+                console.error("Unerwartete Register-Antwort, HTTP-Status:", res.status, "Body:", txt);
+                msg.innerText = `Unerwarteter Fehler (HTTP ${res.status}) - siehe Konsole`;
+            }
+            loadCaptcha();
+        }
+
+        loadCaptcha();
+        </script>
+
+    </body>
+</html>

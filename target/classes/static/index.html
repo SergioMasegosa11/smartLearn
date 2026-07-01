@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="de">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>SmartLearn</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+
+    <body>
+        <div class="page">
+
+            <div class="topbar">
+                <span class="brand">
+                    <span class="brand-mark"></span>
+                    SmartLearn
+                </span>
+                <button class="ghost" onclick="logout()">Logout</button>
+            </div>
+
+            <h1>Was möchtest du machen?</h1>
+            <p class="subtitle">Wähle eine Aktion, um zu starten.</p>
+
+            <div class="menu">
+                <a href="cards.html">
+                    <button>
+                        📇&nbsp; Lernkarten erstellen / verwalten
+                    </button>
+                </a>
+                <a href="test.html">
+                    <button>
+                        🎯&nbsp; Test starten
+                    </button>
+                </a>
+            </div>
+
+        </div>
+
+        <script>
+        // NEU: CSRF-Token aus Cookie lesen (siehe SecurityConfig - CSRF aktiv)
+        function getCsrfToken() {
+            const match = document.cookie.match(/(^|;)\s*XSRF-TOKEN=([^;]+)/);
+            return match ? decodeURIComponent(match[2]) : null;
+        }
+
+        function logout() {
+            fetch("/api/users/logout", {
+                method: "POST",
+                credentials: "include",
+                headers: {"X-XSRF-TOKEN": getCsrfToken()}
+            })
+                .then(() => location.href = "login.html");
+        }
+        </script>
+
+    </body>
+</html>
